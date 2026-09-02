@@ -1,0 +1,6 @@
+# Add one upcoming event page path per line.
+events:
+  - eventi/prossimi/evento-in-arrivo.html
+  - eventi/prossimi/festa-di-primavera.html
+  - eventi/prossimi/notte-in-piazza.html
+  - eventi/prossimi/sagra-delle-tradizioni.html
