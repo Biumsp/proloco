@@ -506,8 +506,8 @@ h1 {
   color: var(--red-dark);
 }
 
-.events-hero {
-  padding: 76px 0 86px;
+.secondary-page-hero {
+  padding: 30px 0;
   background: var(--blue);
   color: white;
 }
@@ -1295,7 +1295,7 @@ h1 {
   top: 50%;
   right: 24px;
   z-index: 15;
-  width: 286px;
+  width: 225px;
   padding: 20px;
   transform: translateY(-50%);
   background: #e6f6ed;
@@ -1312,7 +1312,7 @@ h1 {
   max-width: 230px;
   margin: 0 0 6px;
   color: var(--blue);
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   letter-spacing: -.04em;
 }
 
@@ -1330,8 +1330,8 @@ h1 {
 
 .home-whatsapp-action img {
   display: block;
-  width: 104px;
-  height: 104px;
+  width: 180px;
+  height: 180px;
   margin: 0 auto;
 }
 
@@ -1559,12 +1559,6 @@ h1 {
 
 .social-note {
   margin: 20px 0 0;
-}
-
-.membership-hero {
-  padding: 76px 0 84px;
-  background: var(--blue);
-  color: white;
 }
 
 .membership-hero-inner {
