@@ -1149,7 +1149,7 @@ h1 {
 .collaboration-layout {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(300px, .7fr);
-  gap: clamp(45px, 9vw, 130px);
+  gap: clamp(45px, 9vw, 120px);
   align-items: start;
 }
 
@@ -1330,8 +1330,8 @@ h1 {
 
 .home-whatsapp-action img {
   display: block;
-  width: 180px;
-  height: 180px;
+  width: 183px;
+  height: 183px;
   margin: 0 auto;
 }
 
