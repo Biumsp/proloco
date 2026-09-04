@@ -49,6 +49,7 @@ const readEventPage = async (url) => {
 };
 
 const getMeta = (document, name) => document.querySelector(`meta[name="event:${name}"]`)?.content || '';
+const getInitiativeMeta = (document, name) => document.querySelector(`meta[name="initiative:${name}"]`)?.content || '';
 
 const parseEventList = (yaml) => yaml
   .split('\n')
@@ -59,6 +60,13 @@ const createEventCard = (url, eventDocument) => {
   const card = document.createElement('article');
   card.className = 'event-card';
   card.innerHTML = `<a class="event-card-image" href="${url}"><img src="${getMeta(eventDocument, 'image')}" alt="${getMeta(eventDocument, 'image-alt')}" loading="lazy"><span class="event-card-status">${getMeta(eventDocument, 'status')}</span></a><div class="event-card-body"><p class="event-date"><strong>${getMeta(eventDocument, 'date')}</strong><span>${getMeta(eventDocument, 'date-label')}</span></p><h3>${getMeta(eventDocument, 'title')}</h3><p>${getMeta(eventDocument, 'summary')}</p><dl class="event-details"><div><dt>Dove</dt><dd>${getMeta(eventDocument, 'location')}</dd></div><div><dt>Quando</dt><dd>${getMeta(eventDocument, 'time')}</dd></div></dl><a class="text-link" href="${url}">Scopri l'evento <span aria-hidden="true">→</span></a></div>`;
+  return card;
+};
+
+const createInitiativeCard = (url, initiativeDocument) => {
+  const card = document.createElement('article');
+  card.className = 'event-card initiative-card';
+  card.innerHTML = `<a class="event-card-image" href="${url}"><img src="${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy"><span class="event-card-status">${getInitiativeMeta(initiativeDocument, 'status')}</span></a><div class="event-card-body"><p class="event-date"><strong>${getInitiativeMeta(initiativeDocument, 'date')}</strong><span>${getInitiativeMeta(initiativeDocument, 'date-label')}</span></p><h3>${getInitiativeMeta(initiativeDocument, 'title')}</h3><p>${getInitiativeMeta(initiativeDocument, 'summary')}</p><dl class="event-details"><div><dt>Dove</dt><dd>${getInitiativeMeta(initiativeDocument, 'location')}</dd></div><div><dt>Quando</dt><dd>${getInitiativeMeta(initiativeDocument, 'time')}</dd></div></dl><a class="text-link" href="${url}">Scopri l'iniziativa <span aria-hidden="true">→</span></a></div>`;
   return card;
 };
 
@@ -79,5 +87,21 @@ if (eventGrid) {
     })
     .catch(() => {
       eventGrid.innerHTML = '<div class="event-load-error"><strong>Gli eventi non si sono caricati.</strong><span>Apri il sito tramite GitHub Pages o un server locale per visualizzare le schede.</span></div>';
+    });
+}
+
+const initiativeGrid = document.querySelector('[data-initiatives]');
+
+if (initiativeGrid) {
+  fetch('iniziative/iniziative.yml')
+    .then((response) => {
+      if (!response.ok) throw new Error('Unable to load the initiative list');
+      return response.text();
+    })
+    .then(parseEventList)
+    .then((initiatives) => Promise.all(initiatives.map(async (url) => [url, await readEventPage(url)])))
+    .then((initiatives) => initiatives.forEach(([url, initiativeDocument]) => initiativeGrid.append(createInitiativeCard(url, initiativeDocument))))
+    .catch(() => {
+      initiativeGrid.innerHTML = '<div class="event-load-error"><strong>Le iniziative non si sono caricate.</strong><span>Apri il sito tramite GitHub Pages o un server locale per visualizzare le schede.</span></div>';
     });
 }
