@@ -255,7 +255,6 @@ h1 {
   padding: 100px 0;
   background: var(--paper);
   border-top: 5px solid var(--gold);
-  /* border-bottom: 4px solid var(--blue); */
 }
 
 .territory-layout {
@@ -301,7 +300,7 @@ h1 {
 }
 
 .section-heading {
-  max-width: 650px;
+  max-width: 850px;
   margin-bottom: 36px;
 }
 
@@ -323,10 +322,17 @@ h1 {
 }
 
 .placeholder-card {
-  min-height: 190px;
+  min-height: 100px;
   padding: 26px;
   border-top: 4px solid var(--red);
-  background: white;
+  background: var(--paper);
+  text-decoration: none;
+  transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.placeholder-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 28px rgba(25, 32, 45, .1);
 }
 
 .placeholder-card h3 {
@@ -740,6 +746,14 @@ h1 {
 
 .event-invite .button {
   margin-top: 28px;
+}
+
+/* Form proposte */
+div.form-proposte iframe {
+  padding-top: 30px 0;
+  width: 100%;
+  max-width: 640px;
+  height: 850px;
 }
 
 .archive-link-section {
@@ -1903,6 +1917,10 @@ h1 {
     bottom: 5px;
     left: 0;
     width: 30px;
+  }
+
+  div.form-proposte iframe {
+    height: 1000px;
   }
 }
 
