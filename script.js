@@ -2,31 +2,22 @@ const menuToggle = document.querySelector('.menu-toggle');
 const siteNav = document.querySelector('.site-nav');
 const siteHeader = document.querySelector('.site-header');
 
+const SCROLL_ON = 24;
+const SCROLL_OFF = 8;
+
 const updateHeaderState = () => {
-  siteHeader?.classList.toggle('is-scrolled', window.scrollY > 80);
+  if (!siteHeader) return;
+  if (window.scrollY > SCROLL_ON) {
+    siteHeader.classList.add('is-scrolled');
+  } else if (window.scrollY < SCROLL_OFF) {
+    siteHeader.classList.remove('is-scrolled');
+  }
+  // Between SCROLL_OFF and SCROLL_ON: leave state as-is (dead zone, prevents flicker)
 };
 
 updateHeaderState();
 window.addEventListener('scroll', updateHeaderState, { passive: true });
-document.addEventListener('scroll', updateHeaderState, { passive: true });
 window.addEventListener('load', updateHeaderState);
-
-if (siteHeader && 'IntersectionObserver' in window) {
-  const scrollSentinel = document.createElement('div');
-  scrollSentinel.className = 'scroll-sentinel';
-  scrollSentinel.setAttribute('aria-hidden', 'true');
-  siteHeader.after(scrollSentinel);
-  new IntersectionObserver(([entry]) => {
-    siteHeader.classList.toggle('is-scrolled', !entry.isIntersecting);
-  }).observe(scrollSentinel);
-}
-
-const watchHeaderState = () => {
-  updateHeaderState();
-  window.requestAnimationFrame(watchHeaderState);
-};
-
-window.requestAnimationFrame(watchHeaderState);
 
 if (menuToggle && siteNav) {
   menuToggle.addEventListener('click', () => {
