@@ -27,6 +27,7 @@ body {
   background: var(--paper);
   font-family: 'DM Sans', sans-serif;
   line-height: 1.6;
+  overflow-anchor: none;
 }
 
 a {
@@ -300,7 +301,7 @@ h1 {
 }
 
 .section-heading {
-  max-width: 850px;
+  max-width: 720px;
   margin-bottom: 36px;
 }
 
@@ -551,9 +552,18 @@ h1 {
   line-height: .9;
 }
 
+.events-hero-mark a.link-proposte {
+  display: block;
+  margin-top: 15px;
+  text-decoration: none;
+  color: var(--gold);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  line-height: .9;
+}
+
 .events-hero-mark strong {
   display: block;
-  margin-top: 18px;
   font-family: 'Space Grotesk', sans-serif;
   font-size: 1.25rem;
   line-height: 1.12;

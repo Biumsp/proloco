@@ -39,10 +39,10 @@ const readEventPage = async (url) => {
   return new DOMParser().parseFromString(html, 'text/html');
 };
 
-const getMeta = (document, name) => document.querySelector(`meta[name="event:${name}"]`)?.content || '';
+const getEventMeta = (document, name) => document.querySelector(`meta[name="event:${name}"]`)?.content || '';
 const getInitiativeMeta = (document, name) => document.querySelector(`meta[name="initiative:${name}"]`)?.content || '';
 
-const parseEventList = (yaml) => yaml
+const parseYamlList = (yaml) => yaml
   .split('\n')
   .map((line) => line.match(/^\s*-\s+(.+)$/)?.[1].trim())
   .filter(Boolean);
@@ -50,24 +50,72 @@ const parseEventList = (yaml) => yaml
 const createEventCard = (url, eventDocument) => {
   const card = document.createElement('article');
   card.className = 'event-card';
-  card.innerHTML = `<a class="event-card-image" href="${url}"><img src="${getMeta(eventDocument, 'image')}" alt="${getMeta(eventDocument, 'image-alt')}" loading="lazy"><span class="event-card-status">${getMeta(eventDocument, 'status')}</span></a><div class="event-card-body"><p class="event-date"><strong>${getMeta(eventDocument, 'date')}</strong><span>${getMeta(eventDocument, 'date-label')}</span></p><h3>${getMeta(eventDocument, 'title')}</h3><p>${getMeta(eventDocument, 'summary')}</p><dl class="event-details"><div><dt>Dove</dt><dd>${getMeta(eventDocument, 'location')}</dd></div><div><dt>Quando</dt><dd>${getMeta(eventDocument, 'time')}</dd></div></dl><a class="text-link" href="${url}">Scopri l'evento <span aria-hidden="true">→</span></a></div>`;
+  card.innerHTML =
+    `<a class="event-card-image" href="${url}">
+      <img src="${getEventMeta(eventDocument, 'image')}" alt="${getEventMeta(eventDocument, 'image-alt')}" loading="lazy">
+      <span class="event-card-status">${getEventMeta(eventDocument, 'status')}</span>
+    </a>
+    <div class="event-card-body">
+      <p class="event-date">
+        <strong>${getEventMeta(eventDocument, 'date')}</strong>
+        <span>${getEventMeta(eventDocument, 'date-label')}</span>
+      </p>
+      <h3>${getEventMeta(eventDocument, 'title')}</h3>
+      <p>${getEventMeta(eventDocument, 'summary')}</p>
+      <dl class="event-details">
+        <div>
+          <dt>Dove</dt>
+          <dd>${getEventMeta(eventDocument, 'location')}</dd>
+        </div>
+        <div>
+          <dt>Quando</dt>
+          <dd>${getEventMeta(eventDocument, 'time')}</dd>
+        </div>
+      </dl>
+      <a class="text-link" href="${url}">Scopri l'evento <span aria-hidden="true">→</span></a>
+    </div>`;
   return card;
 };
 
 const createInitiativeCard = (url, initiativeDocument) => {
   const card = document.createElement('article');
   card.className = 'event-card initiative-card';
-  card.innerHTML = `<a class="event-card-image" href="${url}"><img src="${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy"><span class="event-card-status">${getInitiativeMeta(initiativeDocument, 'status')}</span></a><div class="event-card-body"><p class="event-date"><strong>${getInitiativeMeta(initiativeDocument, 'date')}</strong><span>${getInitiativeMeta(initiativeDocument, 'date-label')}</span></p><h3>${getInitiativeMeta(initiativeDocument, 'title')}</h3><p>${getInitiativeMeta(initiativeDocument, 'summary')}</p><dl class="event-details"><div><dt>Dove</dt><dd>${getInitiativeMeta(initiativeDocument, 'location')}</dd></div><div><dt>Quando</dt><dd>${getInitiativeMeta(initiativeDocument, 'time')}</dd></div></dl><a class="text-link" href="${url}">Scopri l'iniziativa <span aria-hidden="true">→</span></a></div>`;
+  card.innerHTML =
+    `<a class="event-card-image" href="${url}">
+      <img src="${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy">
+      <span class="event-card-status">${getInitiativeMeta(initiativeDocument, 'status')}</span>
+    </a>
+    <div class="event-card-body">
+      <p class="event-date">
+        <strong>${getInitiativeMeta(initiativeDocument, 'date')}</strong>
+        <span>${getInitiativeMeta(initiativeDocument, 'date-label')}</span>
+      </p>
+      <h3>${getInitiativeMeta(initiativeDocument, 'title')}</h3>
+      <p>${getInitiativeMeta(initiativeDocument, 'summary')}</p>
+      <dl class="event-details">
+        <div>
+          <dt>Dove</dt>
+          <dd>${getInitiativeMeta(initiativeDocument, 'location')}</dd>
+        </div>
+        <div>
+          <dt>Quando</dt>
+          <dd>${getInitiativeMeta(initiativeDocument, 'time')}</dd>
+        </div>
+      </dl>
+      <a class="text-link" href="${url}">
+        Scopri l'iniziativa <span aria-hidden="true">→</span>
+      </a>
+    </div>`;
   return card;
 };
 
 if (eventGrid) {
-  fetch('eventi/prossimi/events.yaml')
+  fetch('eventi/eventi.yaml')
     .then((response) => {
       if (!response.ok) throw new Error('Unable to load the upcoming event list');
       return response.text();
     })
-    .then(parseEventList)
+    .then(parseYamlList)
     .then((upcomingEvents) => Promise.all(upcomingEvents.map(async (url) => [url, await readEventPage(url)])))
     .then((events) => {
       events.forEach(([url, eventDocument]) => eventGrid.append(createEventCard(url, eventDocument)));
@@ -89,7 +137,7 @@ if (initiativeGrid) {
       if (!response.ok) throw new Error('Unable to load the initiative list');
       return response.text();
     })
-    .then(parseEventList)
+    .then(parseYamlList)
     .then((initiatives) => Promise.all(initiatives.map(async (url) => [url, await readEventPage(url)])))
     .then((initiatives) => initiatives.forEach(([url, initiativeDocument]) => initiativeGrid.append(createInitiativeCard(url, initiativeDocument))))
     .catch(() => {
