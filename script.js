@@ -80,10 +80,11 @@ const createEventCard = (url, eventDocument, isFirst) => {
 const createInitiativeCard = (url, initiativeDocument) => {
   const card = document.createElement('article');
   card.className = 'event-card initiative-card';
+  const status = getInitiativeMeta(initiativeDocument, 'status');
   card.innerHTML =
     `<a class="event-card-image" href="${url}">
       <img src="images/${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy">
-      <span class="event-card-status">${getInitiativeMeta(initiativeDocument, 'status')}</span>
+      ${status ? `<span class="event-card-status">${status}</span>` : ''}
     </a>
     <div class="event-card-body">
       <p class="event-date">
