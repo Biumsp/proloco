@@ -1974,6 +1974,11 @@ div.form-proposte iframe {
   div.form-proposte iframe {
     height: 1000px;
   }
+
+  .banner-social-events {
+    display: none;
+  }
+
 }
 
 @media (max-width: 640px) {
