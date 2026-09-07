@@ -52,7 +52,7 @@ const createEventCard = (url, eventDocument) => {
   card.className = 'event-card';
   card.innerHTML =
     `<a class="event-card-image" href="${url}">
-      <img src="${getEventMeta(eventDocument, 'image')}" alt="${getEventMeta(eventDocument, 'image-alt')}" loading="lazy">
+      <img src="images/${getEventMeta(eventDocument, 'image')}" alt="${getEventMeta(eventDocument, 'image-alt')}" loading="lazy">
       <span class="event-card-status">${getEventMeta(eventDocument, 'status')}</span>
     </a>
     <div class="event-card-body">
@@ -82,7 +82,7 @@ const createInitiativeCard = (url, initiativeDocument) => {
   card.className = 'event-card initiative-card';
   card.innerHTML =
     `<a class="event-card-image" href="${url}">
-      <img src="${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy">
+      <img src="images/${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy">
       <span class="event-card-status">${getInitiativeMeta(initiativeDocument, 'status')}</span>
     </a>
     <div class="event-card-body">
