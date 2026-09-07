@@ -2,8 +2,8 @@
 
 ## Main pages 
 
-### Home
-Slogan nel footer (persone, territorio, partecipazione...)
+### index
+OK
 
 ### Eventi
 Rivedere Header
@@ -11,28 +11,41 @@ Card gialla "Restare aggiornati": da rivedere nel design e contenuto
 
 ### Iniziative
 Rivedere struttura card: renderla più adeguata alle iniziative
+Aggiungi card con link a news come in eventi
 
 ### Associazione
+OK
 
 ### Contatti
+OK
 
 
 ## Inner pages
 
-### News
+### Contatti/Collabora
+OK
 
-### Iscrizioni
+### Contatti/News (solo la pagina eventi linka qui)
+Da rivedere
 
-### Convenzioni
-
-### Collabora
-
-### Proposte
+### Contatti/Proposte
+OK
 
 
-### Pagine eventi singoli
+### Associazione/CdA-statuto
+Inserire nomine e dati corretti
 
-### Pagine iniziative singole
+### Associazione/Iscrizioni
+Rendere pagina più chiara e accattivante con link a pag convenzioni
+
+### Associazione/Convenzioni
+Creare pagina, con elenco
+Verificare convenzioni (dopo)
+
+
+### eventi/ Pagine eventi singoli
+
+### iniziative / Pagine iniziative singole
 
 
 
