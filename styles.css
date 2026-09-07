@@ -621,6 +621,19 @@ h1 {
   letter-spacing: .06em;
 }
 
+.event-card-status-reserved {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  padding: 7px 10px;
+  background: var(--red);
+  color: var(--paper);
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+
 .event-card-body {
   padding: 28px;
 }

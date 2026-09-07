@@ -10,7 +10,6 @@ OK
 
 ### Iniziative
 Rivedere struttura card: renderla più adeguata alle iniziative
-Aggiungi card con link a news come in eventi
 
 ### Associazione
 OK

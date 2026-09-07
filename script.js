@@ -50,10 +50,17 @@ const parseYamlList = (yaml) => yaml
 const createEventCard = (url, eventDocument, isFirst) => {
   const card = document.createElement('article');
   card.className = 'event-card';
+  const riservatoSoci = getEventMeta(eventDocument, 'riservato-soci');
+  let statusSpan = '';
+  if (riservatoSoci === 'true') {
+    statusSpan = '<span class="event-card-status event-card-status-reserved">Riservato ai soci</span>';
+  } else if (isFirst && riservatoSoci !== 'false') {
+    statusSpan = '<span class="event-card-status">Prossimamente</span>';
+  }
   card.innerHTML =
     `<a class="event-card-image" href="${url}">
       <img src="images/${getEventMeta(eventDocument, 'image')}" alt="${getEventMeta(eventDocument, 'image-alt')}" loading="lazy">
-      ${isFirst ? '<span class="event-card-status">Prossimamente</span>' : ''}
+      ${statusSpan}
     </a>
     <div class="event-card-body">
       <p class="event-date">
