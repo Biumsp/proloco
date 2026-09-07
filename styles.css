@@ -1327,7 +1327,7 @@ div.form-proposte iframe {
   font-size: .9rem;
 }
 
-.home-whatsapp {
+.banner-social {
   position: fixed;
   top: 50%;
   right: 24px;
@@ -1341,11 +1341,40 @@ div.form-proposte iframe {
   box-shadow: 0 14px 32px rgba(25, 32, 45, .16);
 }
 
-.home-whatsapp-inner {
+.banner-social-events {
+  position: fixed;
+  right: 32px;
+  z-index: 15;
+  height: 65px;
+  width: 65px;
+  transform: translateY(-50%);
+  border-radius: 100%;
+  box-shadow: 0 14px 32px rgba(25, 32, 45, .16);
+}
+
+.banner-social-events img {
+  height: 100%;
   width: 100%;
 }
 
-.home-whatsapp h2 {
+.banner-social-events.whatsapp {
+  top: 45%;
+}
+
+.banner-social-events.instagram {
+  top: 55%;
+}
+
+.banner-social-events.facebook {
+  top: 65%;
+}
+
+.banner-social-inner {
+  width: 100%;
+}
+
+
+.banner-social h2 {
   max-width: 230px;
   margin: 0 0 6px;
   color: var(--blue);
@@ -1353,34 +1382,34 @@ div.form-proposte iframe {
   letter-spacing: -.04em;
 }
 
-.home-whatsapp p:not(.eyebrow) {
+.banner-social p:not(.eyebrow) {
   max-width: 230px;
   margin: 0;
   color: #496357;
   font-size: .88rem;
 }
 
-.home-whatsapp-action {
+.banner-social-action {
   display: block;
   margin-top: 16px;
 }
 
-.home-whatsapp-action img {
+.banner-social-action img {
   display: block;
   width: 183px;
   height: 183px;
   margin: 0 auto;
 }
 
-.home-whatsapp-action .whatsapp-mobile-link {
+.banner-social-action .whatsapp-mobile-link {
   display: none;
 }
 
-.home-whatsapp .eyebrow {
+.banner-social .eyebrow {
   margin-bottom: 8px;
 }
 
-.home-whatsapp::before {
+.banner-social.home::before {
   display: block;
   margin-bottom: 14px;
   color: #168c4b;
@@ -2026,7 +2055,7 @@ div.form-proposte iframe {
     padding: 58px 0;
   }
 
-  .home-whatsapp {
+  .banner-social {
     top: auto;
     right: 16px;
     bottom: 16px;
@@ -2039,25 +2068,25 @@ div.form-proposte iframe {
     box-shadow: none;
   }
 
-  .home-whatsapp-inner {
+  .banner-social-inner {
     width: auto;
   }
 
-  .home-whatsapp::before,
-  .home-whatsapp-inner>div:first-child {
+  .banner-social::before,
+  .banner-social-inner>div:first-child {
     display: none;
   }
 
-  .home-whatsapp-action {
+  .banner-social-action {
     display: block;
     margin: 0;
   }
 
-  .home-whatsapp-action img {
+  .banner-social-action img {
     display: none !important;
   }
 
-  .home-whatsapp-action .whatsapp-mobile-link {
+  .banner-social-action .whatsapp-mobile-link {
     display: inline-flex;
     align-items: center;
     margin: 0;

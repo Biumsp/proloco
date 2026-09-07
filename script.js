@@ -54,7 +54,7 @@ const createEventCard = (url, eventDocument, isFirst) => {
   let statusSpan = '';
   if (riservatoSoci === 'true') {
     statusSpan = '<span class="event-card-status event-card-status-reserved">Riservato ai soci</span>';
-  } else if (isFirst && riservatoSoci !== 'false') {
+  } else if (isFirst && riservatoSoci === 'false') {
     statusSpan = '<span class="event-card-status">Prossimamente</span>';
   }
   card.innerHTML =

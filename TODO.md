@@ -37,7 +37,7 @@ Inserire nomine e dati corretti
 Rendere pagina più chiara e accattivante con link a pag convenzioni
 
 ### Associazione/Convenzioni
-Creare pagina, con elenco
+Creare content pagina, con elenco
 Verificare convenzioni (dopo)
 
 
