@@ -6,8 +6,7 @@
 OK
 
 ### Eventi
-Rivedere Header
-Card gialla "Restare aggiornati": da rivedere nel design e contenuto
+OK
 
 ### Iniziative
 Rivedere struttura card: renderla più adeguata alle iniziative
@@ -44,9 +43,15 @@ Verificare convenzioni (dopo)
 
 
 ### eventi/ Pagine eventi singoli
+Inserire immagini
+Ristrutturare composizione pagina
+Definire bene quali link vuoi avere
 
 ### iniziative / Pagine iniziative singole
-
+Allontanarsi da struttura a evento
+Inserire immagini
+Ristrutturare composizione pagina
+Definire bene quali link vuoi avere
 
 
 ## Marketing

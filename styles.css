@@ -748,7 +748,7 @@ h1 {
 }
 
 .event-invite h2 {
-  max-width: 680px;
+  max-width: 780px;
   margin: 0;
   font-size: clamp(2.8rem, 6vw, 6rem);
   letter-spacing: -.06em;

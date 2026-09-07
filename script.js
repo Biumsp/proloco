@@ -47,13 +47,13 @@ const parseYamlList = (yaml) => yaml
   .map((line) => line.match(/^\s*-\s+(.+)$/)?.[1].trim())
   .filter(Boolean);
 
-const createEventCard = (url, eventDocument) => {
+const createEventCard = (url, eventDocument, isFirst) => {
   const card = document.createElement('article');
   card.className = 'event-card';
   card.innerHTML =
     `<a class="event-card-image" href="${url}">
       <img src="images/${getEventMeta(eventDocument, 'image')}" alt="${getEventMeta(eventDocument, 'image-alt')}" loading="lazy">
-      <span class="event-card-status">${getEventMeta(eventDocument, 'status')}</span>
+      ${isFirst ? '<span class="event-card-status">Prossimamente</span>' : ''}
     </a>
     <div class="event-card-body">
       <p class="event-date">
@@ -118,10 +118,10 @@ if (eventGrid) {
     .then(parseYamlList)
     .then((upcomingEvents) => Promise.all(upcomingEvents.map(async (url) => [url, await readEventPage(url)])))
     .then((events) => {
-      events.forEach(([url, eventDocument]) => eventGrid.append(createEventCard(url, eventDocument)));
+      events.forEach(([url, eventDocument], index) => eventGrid.append(createEventCard(url, eventDocument, index === 0)));
       const announcement = document.createElement('article');
       announcement.className = 'event-card event-card-highlight';
-      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Stiamo preparando qualcosa</p><h3>Il calendario si riempie di nuove storie.</h3><p>Seguici per scoprire i prossimi appuntamenti e non perdere l\'annuncio.</p><a class="button" href="news.html">Tienimi aggiornato <span aria-hidden="true">→</span></a></div>';
+      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Non perderti i prossimi eventi</p><h3>Il calendario si riempie di nuove storie.</h3><p>Seguici per scoprire i prossimi appuntamenti e non perdere l\'annuncio.</p><a class="button" href="news.html">Seguici sui social <span aria-hidden="true">→</span></a></div>';
       eventGrid.append(announcement);
     })
     .catch(() => {
@@ -139,7 +139,13 @@ if (initiativeGrid) {
     })
     .then(parseYamlList)
     .then((initiatives) => Promise.all(initiatives.map(async (url) => [url, await readEventPage(url)])))
-    .then((initiatives) => initiatives.forEach(([url, initiativeDocument]) => initiativeGrid.append(createInitiativeCard(url, initiativeDocument))))
+    .then((initiatives) => {
+      initiatives.forEach(([url, initiativeDocument]) => initiativeGrid.append(createInitiativeCard(url, initiativeDocument)));
+      const announcement = document.createElement('article');
+      announcement.className = 'event-card event-card-highlight';
+      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Stiamo preparando qualcosa</p><h3>Il calendario si riempie di nuove storie.</h3><p>Seguici per scoprire i prossimi appuntamenti e non perdere l\'annuncio.</p><a class="button" href="news.html">Tienimi aggiornato <span aria-hidden="true">→</span></a></div>';
+      initiativeGrid.append(announcement);
+    })
     .catch(() => {
       initiativeGrid.innerHTML = '<div class="event-load-error"><strong>Le iniziative non si sono caricate.</strong><span>Apri il sito tramite GitHub Pages o un server locale per visualizzare le schede.</span></div>';
     });
