@@ -460,6 +460,12 @@ h1 {
   gap: 18px;
 }
 
+.stats-grid.threespots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
 .stat {
   padding: 24px 20px;
   border-left: 3px solid var(--gold);
@@ -834,13 +840,20 @@ div.form-iscrizioni iframe {
   font-size: 1.08rem;
 }
 
-.event-calendar {
+.event-detail-layout>div>ul {
+  color: var(--muted);
+  padding-left: 18px;
+}
+
+.event-calendar,
+.event-contact-box {
   padding: 30px;
   border-top: 4px solid var(--gold);
   background: var(--soft-blue);
 }
 
-.calendar-heading h2 {
+.calendar-heading h2,
+.contact-box-heading h2 {
   margin: 0 0 25px;
   color: var(--blue);
   font-size: 2rem;
@@ -886,7 +899,8 @@ div.form-iscrizioni iframe {
   text-align: right;
 }
 
-.event-calendar .text-link {
+.event-calendar .text-link,
+.event-contact-box .text-link {
   margin-top: 23px;
 }
 
@@ -2345,6 +2359,10 @@ div.form-iscrizioni iframe {
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stats-grid.threespots {
+    grid-template-columns: repeat(1, 1fr);
   }
 
   .placeholder-grid,
