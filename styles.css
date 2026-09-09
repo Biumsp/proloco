@@ -772,7 +772,8 @@ h1 {
 }
 
 /* Form proposte */
-div.form-proposte iframe {
+div.form-proposte iframe,
+div.form-iscrizioni iframe {
   padding-top: 30px 0;
   width: 100%;
   max-width: 640px;
@@ -1185,7 +1186,7 @@ div.form-proposte iframe {
 
 .collaboration-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, .7fr);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, .9fr);
   gap: clamp(45px, 9vw, 120px);
   align-items: start;
 }
@@ -1634,9 +1635,14 @@ div.form-proposte iframe {
   gap: 60px;
 }
 
+.home-hero-inner.iscrizioni {
+  gap: 40px;
+  grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+}
+
 .membership-hero h1 {
   max-width: 850px;
-  font-size: clamp(3rem, 7vw, 7rem);
+  font-size: clamp(2.5rem, 6vw, 6rem);
 }
 
 .membership-hero p:not(.eyebrow) {
@@ -1769,10 +1775,10 @@ div.form-proposte iframe {
 }
 
 .membership-statement h2 {
-  max-width: 820px;
+  max-width: 1000px;
   margin: 0;
   color: var(--blue);
-  font-size: clamp(2.8rem, 6vw, 6.2rem);
+  font-size: clamp(2.5rem, 5.5vw, 5.9rem);
   letter-spacing: -.06em;
 }
 
@@ -1927,6 +1933,58 @@ div.form-proposte iframe {
   font-size: .82rem;
 }
 
+.membership-photos {
+  padding: 30px 0;
+}
+
+.photo-mosaic {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: minmax(180px, 22vw);
+  /* scales with viewport instead of a fixed small px */
+  grid-auto-flow: dense;
+  /* fills any leftover holes automatically */
+  gap: 12px;
+}
+
+.mosaic-item {
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.mosaic-item img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  display: block;
+}
+
+.mosaic-wide {
+  grid-column: span 2;
+}
+
+.mosaic-tall {
+  grid-row: span 2;
+}
+
+.mosaic-big {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (max-width: 700px) {
+  .photo-mosaic {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 100px;
+  }
+
+  .mosaic-wide {
+    grid-column: span 2;
+  }
+}
+
+
 @media (max-width: 860px) {
   .header-inner {
     min-height: 82px;
@@ -1973,6 +2031,10 @@ div.form-proposte iframe {
 
   div.form-proposte iframe {
     height: 1000px;
+  }
+
+  div.form-iscrizioni iframe {
+    height: 850px;
   }
 
   .banner-social-events {
