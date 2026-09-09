@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="it">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Eventi della Pro Loco Somma Lombardo.">
+    <title>Eventi | Pro Loco Somma Lombardo</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/png" href="images/logo.png">
+  </head>
+
+  <body>
+    <header class="site-header">
+      <div class="header-inner"><a class="brand" href="index.html" aria-label="Pro Loco Somma Lombardo, home"><img
+            src="images/logo_header.png" alt="Pro Loco Somma Lombardo"></a><button class="menu-toggle" type="button"
+          aria-expanded="false" aria-controls="site-nav" aria-label="Apri menu"><svg viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2">
+            <path d="M4 6h16M4 12h16M4 18h16" />
+          </svg></button>
+        <nav class="site-nav" id="site-nav" aria-label="Navigazione principale">
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="eventi.html">Eventi</a></li>
+            <li><a href="iniziative.html" aria-current="page">Iniziative</a></li>
+            <li><a href="associazione.html">Associazione</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <section class="secondary-page-hero">
+        <div class="page-wrap events-hero-inner">
+          <div>
+            <p class="eyebrow">Idee in movimento</p>
+            <h1>Progetti e iniziative per la comunità</h1>
+            <p>Iniziative, proposte e occasioni per rendere Somma Lombardo ancora più viva.</p>
+          </div>
+          <div class="events-hero-mark">
+            <strong>Hai un'idea da proporre?</strong>
+            <a class="link-proposte" href="proposte.html">
+              Dicci di più →
+            </a>
+          </div>
+        </div>
+      </section>
+      <section>
+        <a class="banner-social-events whatsapp" href="https://whatsapp.com/channel/0029VbDXay43rZZgLlguWi3Y">
+          <img src="images/social/whatsapp_icon.png" alt="QR code per iscriversi al canale WhatsApp">
+        </a>
+        <a class="banner-social-events instagram" href="https://www.instagram.com/prolocosomma/">
+          <img src="images/social/instagram_icon.png" alt="QR code per iscriversi al canale WhatsApp">
+        </a>
+        <a class="banner-social-events facebook" href="https://www.facebook.com/prolocosommalombardoaps/?locale=it_IT">
+          <img src="images/social/facebook_icon.png" alt="Icona facebook">
+        </a>
+      </section>
+      <section class="events-list-section">
+        <div class="page-wrap">
+          <div class="section-heading section-heading-wide">
+            <!-- <p class="eyebrow">In programma</p> -->
+            <h2>Iniziative in corso</h2>
+            <!-- <p>Segna la data, porta chi vuoi e preparati a stare bene.</p> -->
+          </div>
+          <div class="event-grid" data-initiatives></div>
+        </div>
+      </section>
+      <section class="event-invite">
+        <div class="page-wrap">
+          <p class="eyebrow">Raggogliamo proposte</p>
+          <h2>Hai un'idea da proporre?</h2><a class="button button-light" href="proposte.html">Dicci di più
+            <span aria-hidden="true">→</span></a>
+        </div>
+      </section>
+    </main>
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-brand"><img src="images/logo_header.png" alt="Pro Loco Somma Lombardo">
+          <p>Persone, storia, territorio.</p>
+        </div>
+        <div>
+          <p class="footer-title">Esplora</p>
+          <p><a href="index.html">Home</a><br><a href="eventi.html">Eventi</a><br><a
+              href="associazione.html">Associazione</a><br><a href="contatti.html">Contatti</a></p>
+        </div>
+        <div>
+          <p class="footer-title">Seguici</p>
+          <div class="social-links"><a href="https://www.facebook.com/prolocosommalombardoaps/?locale=it_IT"
+              target="_blank" rel="noreferrer">Facebook</a><a href="https://www.instagram.com/prolocosomma/"
+              target="_blank" rel="noreferrer">Instagram</a><a
+              href="https://whatsapp.com/channel/0029VbDXay43rZZgLlguWi3Y" target="_blank" rel="noreferrer">WhatsApp</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">© <span data-year></span> Pro Loco Somma Lombardo - P.IVA 02310570128 - Sede: c/o
+        Palazzo Comunale, Piazza Vittorio Veneto, Somma Lombardo (VA)</div>
+    </footer>
+    <script src="script.js?v=4"></script>
+  </body>
+
+</html>

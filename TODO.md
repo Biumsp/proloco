@@ -34,7 +34,7 @@ OK
 Inserire nomine e dati corretti
 
 ### Associazione/Iscrizioni
-Rendere pagina più chiara e accattivante con link a pag convenzioni
+Cambiare le foto
 
 ### Associazione/Convenzioni
 Creare content pagina, con elenco
