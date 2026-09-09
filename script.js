@@ -158,7 +158,7 @@ if (initiativeGrid) {
       initiatives.forEach(([url, initiativeDocument]) => initiativeGrid.append(createInitiativeCard(url, initiativeDocument)));
       const announcement = document.createElement('article');
       announcement.className = 'event-card event-card-highlight';
-      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Non perderti le prossime novità</p><h3>Ogni giorno nuove idee e progetti</h3><p>Seguici per scoprire i progetti in corso e per non perderti quelli in partenza</p><a class="button" href="news.html">Seguici sui social <span aria-hidden="true">→</span></a></div>';
+      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Non perderti le prossime novità</p><h3>Ogni giorno nuove idee e progetti</h3><p>Seguici per scoprire i progetti in corso e per non perderti quelli in partenza</p><a class="button" href="contatti/news.html">Seguici sui social <span aria-hidden="true">→</span></a></div>';
       initiativeGrid.append(announcement);
     })
     .catch(() => {
