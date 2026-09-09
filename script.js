@@ -88,10 +88,17 @@ const createInitiativeCard = (url, initiativeDocument) => {
   const card = document.createElement('article');
   card.className = 'event-card initiative-card';
   const status = getInitiativeMeta(initiativeDocument, 'status');
+  const riservatoSoci = getInitiativeMeta(initiativeDocument, 'riservato-soci');
+  let statusSpan = '';
+  if (riservatoSoci === 'true') {
+    statusSpan = '<span class="event-card-status event-card-status-reserved">Riservato ai soci</span>';
+  } else if (status) {
+    statusSpan = `<span class="event-card-status">${status}</span>`;
+  }
   card.innerHTML =
     `<a class="event-card-image" href="${url}">
       <img src="images/${getInitiativeMeta(initiativeDocument, 'image')}" alt="${getInitiativeMeta(initiativeDocument, 'image-alt')}" loading="lazy">
-      ${status ? `<span class="event-card-status">${status}</span>` : ''}
+      ${statusSpan}
     </a>
     <div class="event-card-body">
       <p class="event-date">
@@ -151,7 +158,7 @@ if (initiativeGrid) {
       initiatives.forEach(([url, initiativeDocument]) => initiativeGrid.append(createInitiativeCard(url, initiativeDocument)));
       const announcement = document.createElement('article');
       announcement.className = 'event-card event-card-highlight';
-      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Non perderti le prossime novità</p><h3>Ogni giorno nuove idee e progetti</h3><p>Seguici per scoprire i progetti in corso e per non perderti quelli in partenza</p><a class="button" href="contatti/news.html">Seguici sui social <span aria-hidden="true">→</span></a></div>';
+      announcement.innerHTML = '<div class="event-card-body"><p class="event-kicker">Non perderti le prossime novità</p><h3>Ogni giorno nuove idee e progetti</h3><p>Seguici per scoprire i progetti in corso e per non perderti quelli in partenza</p><a class="button" href="news.html">Seguici sui social <span aria-hidden="true">→</span></a></div>';
       initiativeGrid.append(announcement);
     })
     .catch(() => {
