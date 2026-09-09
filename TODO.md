@@ -42,9 +42,7 @@ Verificare convenzioni (dopo)
 
 
 ### eventi/ Pagine eventi singoli
-Inserire immagini
-Ristrutturare composizione pagina
-Definire bene quali link vuoi avere
+OK
 
 ### iniziative / Pagine iniziative singole
 Allontanarsi da struttura a evento
