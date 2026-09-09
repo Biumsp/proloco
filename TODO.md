@@ -24,7 +24,7 @@ OK
 OK
 
 ### Contatti/News (solo la pagina eventi linka qui)
-Da rivedere
+OK
 
 ### Contatti/Proposte
 OK
@@ -49,6 +49,7 @@ Allontanarsi da struttura a evento
 Inserire immagini
 Ristrutturare composizione pagina
 Definire bene quali link vuoi avere
+Creare pag agnesino d'argento
 
 
 ## Marketing

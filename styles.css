@@ -778,12 +778,15 @@ h1 {
 }
 
 /* Form proposte */
-div.form-proposte iframe,
-div.form-iscrizioni iframe {
+div.form-embedded iframe {
   padding-top: 30px 0;
   width: 100%;
   max-width: 640px;
   height: 850px;
+}
+
+div.form-embedded.estrazione iframe {
+  height: 1050px;
 }
 
 .archive-link-section {
@@ -2050,12 +2053,16 @@ div.form-iscrizioni iframe {
     width: 30px;
   }
 
-  div.form-proposte iframe {
+  div.form-embedded iframe {
     height: 1000px;
   }
 
-  div.form-iscrizioni iframe {
+  div.form-embedded.iscrizioni iframe {
     height: 850px;
+  }
+
+  div.form-embedded.estrazione iframe {
+    height: 1150px;
   }
 
   .banner-social-events {
