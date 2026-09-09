@@ -975,13 +975,19 @@ div.form-iscrizioni iframe {
   line-height: 1.2;
 }
 
-.event-organize-cta {
+.event-organize-cta,
+.horizontal-social-banner {
   padding: 72px 0;
   background: var(--red);
   color: white;
 }
 
-.event-organize-cta h2 {
+.horizontal-social-banner {
+  background: linear-gradient(135deg, #5141a2, #dd356c 55%, #f5a11b);
+}
+
+.event-organize-cta h2,
+.horizontal-social-banner h2 {
   display: inline-block;
   max-width: 650px;
   margin: 0;
@@ -989,7 +995,8 @@ div.form-iscrizioni iframe {
   letter-spacing: -.05em;
 }
 
-.event-organize-cta .button {
+.event-organize-cta .button,
+.horizontal-social-banner .button {
   float: right;
   margin-top: 10px;
 }
@@ -2231,11 +2238,13 @@ div.form-iscrizioni iframe {
   }
 
   .event-placeholder-section,
-  .event-organize-cta {
+  .event-organize-cta,
+  .horizontal-social-banner {
     padding: 58px 0;
   }
 
-  .event-organize-cta .button {
+  .event-organize-cta .button,
+  .horizontal-social-banner .button {
     float: none;
     display: flex;
     width: max-content;
