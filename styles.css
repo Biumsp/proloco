@@ -2163,6 +2163,10 @@ div.form-embedded.estrazione iframe {
     box-shadow: none;
   }
 
+  .banner-social.home::before {
+    display: none;
+  }
+
   .banner-social-inner {
     width: auto;
   }
